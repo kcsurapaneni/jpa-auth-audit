@@ -1,0 +1,16 @@
+###
+
+GET http://127.0.0.1:9191/api/hello
+Authorization: Basic user abcde
+
+###
+GET http://127.0.0.1:9191/api/order
+Authorization: Basic order 12345
+#Authorization: Basic user abcde
+
+
+###
+GET http://127.0.0.1:9191/api/restaurant
+Authorization: Basic restaurant 98765
+#Authorization: Basic user abcde
+
