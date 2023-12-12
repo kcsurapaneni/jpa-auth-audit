@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: jpa auth audit
+  jpa:
+    open-in-view: false
+    show-sql: true
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          time_zone: UTC
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  sql:
+    init:
+      data-locations: classpath:/db/data.sql
+
+server:
+  port: 9191
+  servlet:
+    context-path: /api
+
+logging:
+  level:
+    org.hibernate.sql: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.springframework.security: TRACE
