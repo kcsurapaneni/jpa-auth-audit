@@ -36,4 +36,10 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
     }
 
+    @ExceptionHandler(TokenAuthorizationException.class)
+    public ResponseEntity<ErrorResponse> handleBadCredentialsException(TokenAuthorizationException e) {
+        log.error("Came to TokenAuthorizationException in GlobalExceptionHandler");
+        return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+    }
+
 }
