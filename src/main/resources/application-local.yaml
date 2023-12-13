@@ -1,10 +1,8 @@
-spring:
-  application:
-    name: jpa auth audit
-server:
-  port: 9191
-  servlet:
-    context-path: /api
-logging:
-  level:
-    org.springframework.security: TRACE
+#server:
+#  error:
+#    whitelabel:
+#      enabled: false
+#spring:
+#  security:
+#    filter:
+#      dispatcher-types: error
