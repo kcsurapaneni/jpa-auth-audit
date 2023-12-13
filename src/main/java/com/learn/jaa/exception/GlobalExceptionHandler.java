@@ -16,7 +16,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(AccessDeniedException.class)
     public ResponseEntity<ProblemDetail> handleAccessDeniedException(AccessDeniedException e) {
-        log.error("Came to AccessDeniedException in GlobalExceptionHandler");
+        log.error("Came to AccessDeniedException in GlobalExceptionHandler", e);
         ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.FORBIDDEN, e.getMessage());
         problemDetail.setTitle("Requested Resource is FORBIDDEN");
         return new ResponseEntity<>(problemDetail, HttpStatus.FORBIDDEN);
@@ -24,7 +24,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ProblemDetail> handleException(Exception e) {
-        log.error("Came to Exception in GlobalExceptionHandler");
+        log.error("Came to Exception in GlobalExceptionHandler", e);
         ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
         problemDetail.setTitle("Server Side Error");
         return new ResponseEntity<>(problemDetail, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -32,13 +32,13 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(BadCredentialsException.class)
     public ResponseEntity<ErrorResponse> handleBadCredentialsException(BadCredentialsException e) {
-        log.error("Came to BadCredentialsException in GlobalExceptionHandler");
+        log.error("Came to BadCredentialsException in GlobalExceptionHandler", e);
         return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
     }
 
     @ExceptionHandler(TokenAuthorizationException.class)
     public ResponseEntity<ErrorResponse> handleBadCredentialsException(TokenAuthorizationException e) {
-        log.error("Came to TokenAuthorizationException in GlobalExceptionHandler");
+        log.error("Came to TokenAuthorizationException in GlobalExceptionHandler", e);
         return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
     }
 
